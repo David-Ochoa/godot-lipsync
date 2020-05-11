@@ -1,0 +1,128 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://models/FuseModel.dae" type="PackedScene" id=1]
+[ext_resource path="res://models/VISEME_rest.anim" type="Animation" id=2]
+[ext_resource path="res://models/VISEME_U.anim" type="Animation" id=3]
+[ext_resource path="res://models/VISEME_AI.anim" type="Animation" id=4]
+[ext_resource path="res://models/VISEME_FV.anim" type="Animation" id=5]
+[ext_resource path="res://models/VISEME_MBP.anim" type="Animation" id=6]
+[ext_resource path="res://models/VISEME_L.anim" type="Animation" id=7]
+[ext_resource path="res://models/VISEME_etc.anim" type="Animation" id=8]
+[ext_resource path="res://models/VISEME_E.anim" type="Animation" id=9]
+[ext_resource path="res://models/VISEME_O.anim" type="Animation" id=10]
+[ext_resource path="res://models/VISEME_WQ.anim" type="Animation" id=11]
+[ext_resource path="res://models/FuseModel.cs" type="Script" id=12]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "VISEME_O"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "VISEME_etc"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "VISEME_E"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "VISEME_AI"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "VISEME_U"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "VISEME_WQ"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "VISEME_FV"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "VISEME_L"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "VISEME_rest"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "VISEME_MBP"
+
+[sub_resource type="AnimationNodeTransition" id=11]
+input_count = 10
+xfade_time = 0.1
+input_0/name = "A"
+input_0/auto_advance = false
+input_1/name = "B"
+input_1/auto_advance = false
+input_2/name = "C"
+input_2/auto_advance = false
+input_3/name = "D"
+input_3/auto_advance = false
+input_4/name = "E"
+input_4/auto_advance = false
+input_5/name = "F"
+input_5/auto_advance = false
+input_6/name = "G"
+input_6/auto_advance = false
+input_7/name = "H"
+input_7/auto_advance = false
+input_8/name = "X"
+input_8/auto_advance = false
+input_9/name = "O"
+input_9/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendTree" id=12]
+graph_offset = Vector2( 40.2577, 153.772 )
+nodes/Animation/node = SubResource( 10 )
+nodes/Animation/position = Vector2( 40, -100 )
+"nodes/Animation 10/node" = SubResource( 1 )
+"nodes/Animation 10/position" = Vector2( 280, 400 )
+"nodes/Animation 2/node" = SubResource( 2 )
+"nodes/Animation 2/position" = Vector2( 40, 40 )
+"nodes/Animation 3/node" = SubResource( 3 )
+"nodes/Animation 3/position" = Vector2( 40, 160 )
+"nodes/Animation 4/node" = SubResource( 4 )
+"nodes/Animation 4/position" = Vector2( 40, 280 )
+"nodes/Animation 5/node" = SubResource( 5 )
+"nodes/Animation 5/position" = Vector2( 40, 400 )
+"nodes/Animation 6/node" = SubResource( 6 )
+"nodes/Animation 6/position" = Vector2( 280, -100 )
+"nodes/Animation 7/node" = SubResource( 7 )
+"nodes/Animation 7/position" = Vector2( 280, 40 )
+"nodes/Animation 8/node" = SubResource( 8 )
+"nodes/Animation 8/position" = Vector2( 280, 160 )
+"nodes/Animation 9/node" = SubResource( 9 )
+"nodes/Animation 9/position" = Vector2( 280, 280 )
+nodes/Transition/node = SubResource( 11 )
+nodes/Transition/position = Vector2( 720, -40 )
+nodes/output/position = Vector2( 920, -20 )
+node_connections = [ "output", 0, "Transition", "Transition", 0, "Animation", "Transition", 1, "Animation 2", "Transition", 2, "Animation 3", "Transition", 3, "Animation 4", "Transition", 4, "Animation 5", "Transition", 5, "Animation 6", "Transition", 6, "Animation 7", "Transition", 7, "Animation 8", "Transition", 8, "Animation 9", "Transition", 9, "Animation 10" ]
+
+[sub_resource type="AnimationNodeBlendTree" id=13]
+graph_offset = Vector2( 0, 79 )
+nodes/SpeakAnims/node = SubResource( 12 )
+nodes/SpeakAnims/position = Vector2( 179, 173 )
+nodes/output/position = Vector2( 620, 80 )
+node_connections = [ "output", 0, "SpeakAnims" ]
+
+[node name="FuseModel" instance=ExtResource( 1 )]
+script = ExtResource( 12 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/VISEME_AI = ExtResource( 4 )
+anims/VISEME_E = ExtResource( 9 )
+anims/VISEME_FV = ExtResource( 5 )
+anims/VISEME_L = ExtResource( 7 )
+anims/VISEME_MBP = ExtResource( 6 )
+anims/VISEME_O = ExtResource( 10 )
+anims/VISEME_U = ExtResource( 3 )
+anims/VISEME_WQ = ExtResource( 11 )
+anims/VISEME_etc = ExtResource( 8 )
+anims/VISEME_rest = ExtResource( 2 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 13 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/SpeakAnims/Transition/current = 8
+
+[node name="Camera" type="Camera" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.5 )
+
+[node name="SpeachPlayer" type="AudioStreamPlayer3D" parent="." index="4"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/merchant_female.wav-dda8c7cf5388f9ac06fb582c08f9af02.sample"
+
+[deps]
+
+source_file="res://Speach/merchant_female.wav"
+dest_files=[ "res://.import/merchant_female.wav-dda8c7cf5388f9ac06fb582c08f9af02.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

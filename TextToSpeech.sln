@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextToSpeech", "TextToSpeech.csproj", "{77F52A5F-E0BB-4D8C-98D7-71C5DFAA681D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77F52A5F-E0BB-4D8C-98D7-71C5DFAA681D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F52A5F-E0BB-4D8C-98D7-71C5DFAA681D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F52A5F-E0BB-4D8C-98D7-71C5DFAA681D}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{77F52A5F-E0BB-4D8C-98D7-71C5DFAA681D}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{77F52A5F-E0BB-4D8C-98D7-71C5DFAA681D}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{77F52A5F-E0BB-4D8C-98D7-71C5DFAA681D}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
